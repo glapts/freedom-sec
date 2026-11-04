@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FREEDOM.SEC - Plataforma & Marketplace de Controle de Pragas</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B1B3D',
+              navyDeep: '#060E1E',
+              navyLight: '#162E5C',
+              green: '#1E6F38',
+              greenLight: '#22C55E',
+              greenDark: '#15803D',
+              surface: '#F8FAFC',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-nav {
+      background: rgba(11, 27, 61, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 50% 20%, #162E5C 0%, #0B1B3D 60%, #060E1E 100%);
+    }
+    .card-glow:hover {
+      box-shadow: 0 10px 30px -10px rgba(34, 197, 94, 0.25);
+    }
+    .custom-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #22C55E;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-brand-greenLight selection:text-white">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-700/60 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-xl overflow-hidden bg-white p-1 shadow-md border border-brand-green flex items-center justify-center">
+          <img src="logo_freedomsec.jpg" alt="Logo Freedom Sec" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0B1B3D/FFFFFF?text=F.SEC'">
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white flex items-center gap-1">
+            FREEDOM<span class="text-brand-greenLight">SEC</span>
+          </span>
+          <span class="text-[10px] sm:text-xs block text-slate-300 font-medium tracking-wider uppercase">
+            Controle de Pragas
+          </span>
+        </div>
+      </a>
+
+      <!-- MENU DESKTOP -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-200">
+        <a href="#marketplace" class="hover:text-brand-greenLight transition-colors">Marketplace de Leads</a>
+        <a href="#como-funciona" class="hover:text-brand-greenLight transition-colors">Como Funciona</a>
+        <a href="#vantagens" class="hover:text-brand-greenLight transition-colors">Vantagens</a>
+        <a href="#simulador" class="hover:text-brand-greenLight transition-colors">Simulador</a>
+        <a href="#whatsapp-ia" class="hover:text-brand-greenLight transition-colors">Robô WhatsApp</a>
+        <a href="#faq" class="hover:text-brand-greenLight transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- BOTÕES AÇÃO -->
+      <div class="flex items-center gap-3">
+        <a href="#marketplace" class="hidden sm:inline-flex items-center gap-2 bg-brand-greenLight hover:bg-brand-greenDark text-white text-sm font-bold py-2.5 px-5 rounded-xl shadow-lg shadow-green-900/30 transition-all active:scale-95">
+          <i data-lucide="zap" class="w-4 h-4"></i>
+          Ver Agendamentos
+        </a>
+        <button onclick="abrirModalCredenciado()" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold py-2.5 px-4 rounded-xl border border-white/20 transition-all">
+          <i data-lucide="user-check" class="w-4 h-4 text-brand-greenLight"></i>
+          <span class="hidden sm:inline">Área do</span> Credenciado
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-gradient text-white overflow-hidden">
+    <!-- Efeitos de luz no background -->
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-brand-greenLight/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-brand-navyLight/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- TEXTO HERO -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-greenLight/10 border border-brand-greenLight/30 text-brand-greenLight text-xs sm:text-sm font-semibold">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>Plataforma Oficial de Agendamentos de Dedetização</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
+            O cliente de controle de pragas <span class="text-brand-greenLight underline decoration-brand-greenLight/40">já agendou</span>. Só falta você aceitar.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            A <strong>FREEDOM.SEC</strong> anuncia, atende no WhatsApp com Inteligência Artificial, coleta o endereço, diagnostica a infestação e fecha a data. Você só compra o cliente exclusivo da sua região em São Paulo e executa o serviço.
+          </p>
+
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-300">
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-brand-greenLight"></i> Sem mensalidade fixa</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-brand-greenLight"></i> 100% Exclusivo (1 lead por parceiro)</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-brand-greenLight"></i> Recarga via PIX em 1 clique</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-4 pt-2 justify-center lg:justify-start">
+            <a href="#marketplace" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-greenLight hover:bg-brand-greenDark text-white font-bold text-base py-4 px-8 rounded-xl shadow-xl shadow-green-900/40 transition-all transform hover:-translate-y-0.5">
+              <i data-lucide="calendar-check" class="w-5 h-5"></i>
+              Quero Receber Agendamentos
+            </a>
+            <a href="#simulador" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-base py-4 px-6 rounded-xl border border-slate-700 transition-all">
+              <i data-lucide="calculator" class="w-5 h-5 text-brand-greenLight"></i>
+              Simular Meus Lucros
+            </a>
+          </div>
+
+          <p class="text-xs text-slate-400">
+            Proprietário: <strong>Marcelo Baptista das Graças</strong> • Base: Jd. Comercial, São Paulo - SP
+          </p>
+
+        </div>
+
+        <!-- CARD MOCKUP VITRINE INTERATIVA -->
+        <div class="lg:col-span-5 relative">
+          <div class="bg-brand-navyDeep/90 border border-slate-700 rounded-3xl p-6 shadow-2xl backdrop-blur-xl relative">
+            
+            <!-- HEADER DA CARTEIRA -->
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-brand-green/30 border border-brand-green flex items-center justify-center text-brand-greenLight">
+                  <i data-lucide="wallet" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 block">Sua Carteira Freedom.sec</span>
+                  <span class="text-lg font-bold text-white">R$ 250,00</span>
+                </div>
+              </div>
+              <button onclick="recarregarCarteira()" class="text-xs bg-brand-greenLight/20 text-brand-greenLight hover:bg-brand-greenLight hover:text-white font-semibold py-1.5 px-3 rounded-lg border border-brand-greenLight/40 transition-all">
+                + Recarregar PIX
+              </button>
+            </div>
+
+            <!-- CHAMADA DE AGENDAMENTO AO VIVO -->
+            <div class="mt-4 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="flex items-center gap-1.5 text-brand-greenLight font-semibold">
+                  <span class="w-2 h-2 rounded-full bg-brand-greenLight animate-ping"></span>
+                  Agendamento Quente em São Paulo
+                </span>
+                <span id="tempo-restante">Há 4 minutos</span>
+              </div>
+
+              <!-- CARD DO SERVIÇO EM DESTAQUE -->
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-brand-green/40 relative overflow-hidden group">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-1.5">
+                      Dedetização Baratas & Formigas
+                    </span>
+                    <h4 class="font-bold text-white text-base">Apartamento 95m² - Residencial</h4>
+                    <p class="text-xs text-slate-400 flex items-center gap-1 mt-1">
+                      <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-greenLight"></i>
+                      Santo Amaro / Jd. Comercial – SP
+                    </p>
+                    <p class="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
+                      <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-greenLight"></i>
+                      Amanhã, às 14:00 (Confirmado com cliente)
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-2 gap-2 text-center">
+                  <div class="bg-slate-800/60 p-2 rounded-xl">
+                    <span class="text-[10px] text-slate-400 block uppercase">Valor a Receber</span>
+                    <span class="font-bold text-emerald-400 text-sm">R$ 380,00</span>
+                  </div>
+                  <div class="bg-slate-800/60 p-2 rounded-xl">
+                    <span class="text-[10px] text-slate-400 block uppercase">Custo do Agendamento</span>
+                    <span class="font-bold text-slate-200 text-sm">R$ 85,00</span>
+                  </div>
+                </div>
+
+                <button onclick="comprarLeadDemo('Dedetização Baratas & Formigas', 'Santo Amaro - SP', 'R$ 380,00', 'R$ 85,00')" class="w-full mt-3 bg-brand-greenLight hover:bg-brand-greenDark text-white font-bold py-2.5 px-4 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2">
+                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                  Aceitar Este Agendamento
+                </button>
+              </div>
+
+              <!-- CARD 2 PREVIEW -->
+              <div class="p-3.5 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-center justify-between text-xs">
+                <div>
+                  <span class="font-semibold text-white block">Desratização Comercial (Padaria)</span>
+                  <span class="text-slate-400">Pinheiros - SP • Terça 09:30</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-emerald-400 font-bold block">R$ 650,00</span>
+                  <span class="text-[10px] text-slate-500">Lead: R$ 140,00</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- GARANTIA -->
+            <div class="mt-4 text-center">
+              <span class="text-[11px] text-slate-400 flex items-center justify-center gap-1">
+                <i data-lucide="lock" class="w-3 h-3 text-brand-greenLight"></i>
+                Garantia Freedom.sec: Se o cliente cancelar, crédito 100% estornado.
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE IDENTIFICAÇÃO DE DORES DO SETOR -->
+  <section class="py-16 md:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-green bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+          Você se identifica com essa rotina?
+        </span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900">
+          O trabalho pesado não deveria ser caçar clientes, mas sim aplicar com excelência.
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+          Muitos técnicos qualificados e dedetizadoras perdem dinheiro todo mês com os mesmos erros:
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center">
+            <i data-lucide="trending-down" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Sem serviço durante a semana</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Fica dependendo exclusivamente de indicações e passa dias úteis inteiros sem nenhum chamado agendado.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
+            <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Gasta em anúncios e toma prejuízo</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Paga R$ 500 a R$ 1.500 para agências no Google Ads e recebe curiosos que só perguntam o preço e somem.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center">
+            <i data-lucide="message-square-off" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Perde vendas no WhatsApp</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Enquanto está na rua de máscara e macacão aplicando veneno, novos clientes chamam e fecham com o concorrente.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
+            <i data-lucide="navigation-off" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Cruza São Paulo e queima gasolina</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Faz um serviço na Zona Sul de manhã e outro na Zona Norte à tarde, perdendo 4 horas no trânsito e o lucro do dia.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center">
+            <i data-lucide="user-x" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Equipe e aplicadores parados</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Custo fixo correndo, funcionários esperando e a agenda com buracos enormes que destroem o fluxo de caixa.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-emerald-50 border border-brand-green/30 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-green text-white flex items-center justify-center">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">A Solução FREEDOM.SEC</h3>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            Você acorda, abre o celular e escolhe os serviços já vendidos e agendados no seu bairro. Simples assim.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARKETPLACE INTERATIVO (VITRINE DE LEADS) -->
+  <section id="marketplace" class="py-16 md:py-24 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-green bg-emerald-100 px-3 py-1 rounded-full">
+            Vitrine em Tempo Real
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-2">
+            Agendamentos Disponíveis para São Paulo
+          </h2>
+          <p class="text-slate-600 text-sm mt-1">
+            Escolha os agendamentos compatíveis com sua rota. Cada lead é 100% exclusivo e vendido apenas uma vez.
+          </p>
+        </div>
+        
+        <!-- FILTROS RÁPIDOS -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <button class="bg-brand-navy text-white font-semibold px-3 py-2 rounded-lg">Todos</button>
+          <button class="bg-white hover:bg-slate-200 text-slate-700 font-medium px-3 py-2 rounded-lg border border-slate-300">Baratas & Formigas</button>
+          <button class="bg-white hover:bg-slate-200 text-slate-700 font-medium px-3 py-2 rounded-lg border border-slate-300">Roedores</button>
+          <button class="bg-white hover:bg-slate-200 text-slate-700 font-medium px-3 py-2 rounded-lg border border-slate-300">Cupins</button>
+        </div>
+      </div>
+
+      <!-- GRID DE CARDS DO MARKETPLACE -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- CARD 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 card-glow transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full flex items-center gap-1">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i> Baratas & Formigas
+              </span>
+              <span class="text-xs text-slate-500 font-medium flex items-center gap-1">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> Há 12 min
+              </span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg">Residência Térrea (140m²)</h3>
+            <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-green"></i> Jd. Comercial / Capão Redondo - SP
+            </p>
+            <div class="mt-4 p-3 bg-slate-50 rounded-xl space-y-1.5 text-xs text-slate-600 border border-slate-100">
+              <p><strong>Aplicação:</strong> Gel baraticida interno + Micropulverização periférica</p>
+              <p><strong>Horário Agendado:</strong> Sexta-feira às 10:00</p>
+              <p><strong>Pets/Crianças:</strong> 1 cão pequeno (orientado afastamento)</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <span class="text-[10px] text-slate-400 block uppercase">Preço Fechado</span>
+                <span class="text-xl font-bold text-slate-900">R$ 390,00</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] text-slate-400 block uppercase">Custo do Lead</span>
+                <span class="text-lg font-bold text-brand-green">R$ 85,00</span>
+              </div>
+            </div>
+            <button onclick="comprarLeadDemo('Baratas & Formigas - 140m²', 'Jd. Comercial - SP', 'R$ 390,00', 'R$ 85,00')" class="w-full bg-brand-greenLight hover:bg-brand-greenDark text-white font-bold py-2.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+              <i data-lucide="check" class="w-4 h-4"></i> Aceitar Agendamento
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 card-glow transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full flex items-center gap-1">
+                <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-600"></i> Desratização Comercial
+              </span>
+              <span class="text-xs text-slate-500 font-medium flex items-center gap-1">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> Há 25 min
+              </span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg">Restaurante & Cozinha Industrial</h3>
+            <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-green"></i> Moema - São Paulo / SP
+            </p>
+            <div class="mt-4 p-3 bg-slate-50 rounded-xl space-y-1.5 text-xs text-slate-600 border border-slate-100">
+              <p><strong>Aplicação:</strong> Instalação de 8 caixas porta-iscas com chave</p>
+              <p><strong>Horário Agendado:</strong> Segunda-feira às 07:00 (antes de abrir)</p>
+              <p><strong>Exigência:</strong> Emissão de Laudo Técnico Sanitário (PDF)</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <span class="text-[10px] text-slate-400 block uppercase">Preço Fechado</span>
+                <span class="text-xl font-bold text-slate-900">R$ 750,00</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] text-slate-400 block uppercase">Custo do Lead</span>
+                <span class="text-lg font-bold text-brand-green">R$ 160,00</span>
+              </div>
+            </div>
+            <button onclick="comprarLeadDemo('Desratização Comercial', 'Moema - SP', 'R$ 750,00', 'R$ 160,00')" class="w-full bg-brand-greenLight hover:bg-brand-greenDark text-white font-bold py-2.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+              <i data-lucide="check" class="w-4 h-4"></i> Aceitar Agendamento
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 card-glow transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold bg-blue-100 text-blue-800 px-3 py-1 rounded-full flex items-center gap-1">
+                <i data-lucide="box" class="w-3.5 h-3.5 text-blue-600"></i> Descupinização Preventiva
+              </span>
+              <span class="text-xs text-slate-500 font-medium flex items-center gap-1">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> Há 40 min
+              </span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg">Sobrado 3 Pavimentos (Móveis)</h3>
+            <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-green"></i> Morumbi - São Paulo / SP
+            </p>
+            <div class="mt-4 p-3 bg-slate-50 rounded-xl space-y-1.5 text-xs text-slate-600 border border-slate-100">
+              <p><strong>Aplicação:</strong> Injeção em batentes e tratamento de forro</p>
+              <p><strong>Horário Agendado:</strong> Sábado às 09:00</p>
+              <p><strong>Ticket Alto:</strong> Cliente com urgência de fechamento</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <span class="text-[10px] text-slate-400 block uppercase">Preço Fechado</span>
+                <span class="text-xl font-bold text-slate-900">R$ 1.450,00</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] text-slate-400 block uppercase">Custo do Lead</span>
+                <span class="text-lg font-bold text-brand-green">R$ 290,00</span>
+              </div>
+            </div>
+            <button onclick="comprarLeadDemo('Descupinização Sobrado', 'Morumbi - SP', 'R$ 1.450,00', 'R$ 290,00')" class="w-full bg-brand-greenLight hover:bg-brand-greenDark text-white font-bold py-2.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+              <i data-lucide="check" class="w-4 h-4"></i> Aceitar Agendamento
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA (4 PASSOS) -->
+  <section id="como-funciona" class="py-16 md:py-24 bg-white border-t border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-green bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+          Simples e Transparente
+        </span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900">
+          Como funciona a parceria com a Freedom.sec
+        </h2>
+        <p class="text-slate-600 text-base">
+          Em 4 etapas simples você mantém sua equipe em campo todos os dias, sem correr atrás de clientes.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        
+        <div class="relative space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-brand-navy text-brand-greenLight flex items-center justify-center font-display font-extrabold text-2xl shadow-lg shadow-brand-navy/20">
+            01
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">A Freedom.sec Capta</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Investimos em anúncios de alta intenção no Google e redes sociais para atrair pessoas com infestações ativas em São Paulo.
+          </p>
+        </div>
+
+        <div class="relative space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-brand-green text-white flex items-center justify-center font-display font-extrabold text-2xl shadow-lg shadow-brand-green/20">
+            02
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">O Robô IA Vende</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Nosso atendente virtual inteligente no WhatsApp diagnostica o imóvel, quebra objeções de preço e fecha data e hora.
+          </p>
+        </div>
+
+        <div class="relative space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-brand-navy text-brand-greenLight flex items-center justify-center font-display font-extrabold text-2xl shadow-lg shadow-brand-navy/20">
+            03
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Cai no Seu Painel</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            O agendamento aparece com bairro, serviço e valor. Você decide se compra via PIX. Comprando, ele sai da vitrine na hora.
+          </p>
+        </div>
+
+        <div class="relative space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-brand-green text-white flex items-center justify-center font-display font-extrabold text-2xl shadow-lg shadow-brand-green/20">
+            04
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Você Executa e Lucra</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Você recebe o telefone, endereço exato e detalhes. Vai até o local, executa o serviço de dedetização e recebe 100% do cliente.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPARATIVO: SOZINHO VS FREEDOM.SEC -->
+  <section id="vantagens" class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-3 mb-12">
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900">
+          Anunciar Sozinho vs. Plataforma Freedom.sec
+        </h2>
+        <p class="text-slate-600 text-sm">
+          Veja a diferença clara entre tentar a sorte sozinho e usar um ecossistema pronto:
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+        
+        <div class="grid grid-cols-2 text-center border-b border-slate-200">
+          <div class="py-4 bg-slate-100 font-bold text-slate-500 text-sm sm:text-base border-r border-slate-200">
+            Tentando Fazer Sozinho
+          </div>
+          <div class="py-4 bg-brand-navy text-brand-greenLight font-bold text-sm sm:text-base">
+            Como Credenciado Freedom.sec
+          </div>
+        </div>
+
+        <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+          
+          <div class="grid grid-cols-2 p-4 items-center">
+            <div class="text-slate-600 flex items-center gap-2 pr-3">
+              <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+              Gasta R$ 800+ por semana com anúncios sem garantia
+            </div>
+            <div class="text-slate-900 font-medium flex items-center gap-2 pl-3">
+              <i data-lucide="check" class="w-4 h-4 text-brand-greenLight flex-shrink-0"></i>
+              R$ 0 de mensalidade. Só paga pelo serviço já agendado
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 p-4 items-center bg-slate-50/50">
+            <div class="text-slate-600 flex items-center gap-2 pr-3">
+              <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+              Precisa parar a aplicação para responder no WhatsApp
+            </div>
+            <div class="text-slate-900 font-medium flex items-center gap-2 pl-3">
+              <i data-lucide="check" class="w-4 h-4 text-brand-greenLight flex-shrink-0"></i>
+              Robô com IA atende e negocia 24h por dia sozinho
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 p-4 items-center">
+            <div class="text-slate-600 flex items-center gap-2 pr-3">
+              <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+              Clientes pedem desconto e fecham com clandestinos
+            </div>
+            <div class="text-slate-900 font-medium flex items-center gap-2 pl-3">
+              <i data-lucide="check" class="w-4 h-4 text-brand-greenLight flex-shrink-0"></i>
+              Preço fechado no valor técnico correto da Freedom.sec
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 p-4 items-center bg-slate-50/50">
+            <div class="text-slate-600 flex items-center gap-2 pr-3">
+              <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+              Atende cliente em bairros fora de mão e gasta gasolina
+            </div>
+            <div class="text-slate-900 font-medium flex items-center gap-2 pl-3">
+              <i data-lucide="check" class="w-4 h-4 text-brand-greenLight flex-shrink-0"></i>
+              Você só aceita agendamentos nos bairros que escolher
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIMULADOR DINÂMICO DE GANHOS -->
+  <section id="simulador" class="py-16 md:py-24 bg-brand-navy text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-3 mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-greenLight bg-brand-greenLight/10 px-3 py-1 rounded-full border border-brand-greenLight/20">
+          Faça as Contas
+        </span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl">
+          Simulador de Faturamento & Lucro
+        </h2>
+        <p class="text-slate-300 text-sm">
+          Arraste a barra para ver quanto sua empresa pode faturar aceitando agendamentos prontos:
+        </p>
+      </div>
+
+      <div class="bg-brand-navyDeep p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl">
+        
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <label for="leads-range" class="text-sm font-semibold text-slate-300">
+              Agendamentos que você deseja aceitar por mês:
+            </label>
+            <span id="leads-count" class="text-2xl font-display font-extrabold text-brand-greenLight">
+              10 agendamentos
+            </span>
+          </div>
+
+          <input type="range" id="leads-range" min="3" max="50" value="10" step="1" class="w-full h-3 bg-slate-800 rounded-lg custom-slider cursor-pointer" oninput="atualizarSimulador(this.value)">
+
+          <div class="flex justify-between text-[11px] text-slate-500">
+            <span>3 serviços</span>
+            <span>25 serviços</span>
+            <span>50 serviços / mês</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-800 text-center">
+          
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <span class="text-xs text-slate-400 block mb-1">Faturamento Bruto</span>
+            <span id="faturamento-bruto" class="font-display font-bold text-2xl text-white">
+              R$ 4.200,00
+            </span>
+            <span class="text-[10px] text-slate-400 block mt-1">Ticket médio R$ 420,00</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <span class="text-xs text-slate-400 block mb-1">Investimento em Leads</span>
+            <span id="custo-leads" class="font-display font-bold text-2xl text-amber-400">
+              R$ 950,00
+            </span>
+            <span class="text-[10px] text-slate-400 block mt-1">~22% do valor do serviço</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-950/60 border border-brand-greenLight/40">
+            <span class="text-xs text-brand-greenLight font-semibold block mb-1">Lucro Líquido Estimado</span>
+            <span id="lucro-liquido" class="font-display font-extrabold text-2xl text-brand-greenLight">
+              R$ 3.250,00
+            </span>
+            <span class="text-[10px] text-emerald-300 block mt-1">Dinheiro no seu bolso</span>
+          </div>
+
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="#marketplace" class="inline-flex items-center gap-2 bg-brand-greenLight hover:bg-brand-greenDark text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-green-900/40">
+            <i data-lucide="wallet" class="w-5 h-5"></i>
+            Começar com Apenas 1 Agendamento
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEMONSTRAÇÃO DO ROBÔ WHATSAPP IA -->
+  <section id="whatsapp-ia" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-green bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            Tecnologia de Vendas 24 Horas
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900">
+            Nosso Atendente com Inteligência Artificial fecha a venda no WhatsApp
+          </h2>
+          <p class="text-slate-600 text-base leading-relaxed">
+            O cliente não quer esperar até a manhã seguinte. Quando ele vê uma barata ou sinal de rato à meia-noite, ele chama imediatamente. O Robô Freedom.sec atende em 3 segundos, passa segurança técnica e confirma o horário.
+          </p>
+
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-brand-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <p class="text-sm text-slate-700"><strong>Identificação de Pragas:</strong> Coleta sintomas, fotos da infestação e metragem do imóvel.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-brand-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <p class="text-sm text-slate-700"><strong>Orientações de Segurança:</strong> Explica procedimentos com pets, gestantes e produtos autorizados pela ANVISA.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-brand-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <p class="text-sm text-slate-700"><strong>Agendamento Completo:</strong> Coleta endereço, define data e envia direto para a vitrine do credenciado.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOCKUP SIMULADOR DE CHAT WHATSAPP -->
+        <div class="lg:col-span-6 flex justify-center">
+          <div class="w-full max-w-sm rounded-[36px] bg-slate-900 p-3 shadow-2xl border-4 border-slate-700">
+            <div class="rounded-[28px] bg-[#0b141a] p-4 text-white space-y-3 text-xs">
+              
+              <!-- TOPO DO CHAT -->
+              <div class="flex items-center gap-3 pb-3 border-b border-slate-800">
+                <div class="w-8 h-8 rounded-full bg-white p-0.5 flex items-center justify-center">
+                  <img src="logo_freedomsec.jpg" alt="Freedom Sec" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/50x50/0B1B3D/FFFFFF?text=FS'">
+                </div>
+                <div>
+                  <span class="font-bold text-sm block">FREEDOM.SEC IA</span>
+                  <span class="text-[10px] text-emerald-400">● Online agora</span>
+                </div>
+              </div>
+
+              <!-- MENSAGENS -->
+              <div class="space-y-2.5 pt-2">
+                
+                <div class="bg-[#202c33] p-2.5 rounded-xl rounded-tl-none max-w-[85%] text-slate-200">
+                  Olá! Aqui é a assistente virtual da <strong>FREEDOM.SEC</strong>. Proteção que dá liberdade e resultados que duram. Qual tipo de praga está incomodando seu imóvel hoje?
+                </div>
+
+                <div class="bg-[#005c4b] p-2.5 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-white">
+                  Apareceram várias baratas pequenas na minha cozinha perto da pia. Tenho um cachorro pequeno em casa. É perigoso?
+                </div>
+
+                <div class="bg-[#202c33] p-2.5 rounded-xl rounded-tl-none max-w-[85%] text-slate-200">
+                  Fique tranquilo! Essas são as baratas francesinhas (*Blattella germanica*). Nossos técnicos credenciados aplicam <strong>gel baraticida inodoro</strong> nos pontos críticos, 100% seguro para pets sem necessidade de desocupar a casa!
+                </div>
+
+                <div class="bg-[#202c33] p-2.5 rounded-xl rounded-tl-none max-w-[85%] text-slate-200">
+                  O valor do tratamento com garantia sanitária de 90 dias fica em <strong>R$ 380,00</strong>. Temos disponibilidade para o técnico ir amanhã às 10h ou 14h. Qual horário fica melhor para você?
+                </div>
+
+                <div class="bg-[#005c4b] p-2.5 rounded-xl rounded-tr-none max-w-[85%] ml-auto text-white">
+                  Perfeito! Amanhã às 14h pode confirmar. O endereço é Rua das Acácias, Jd. Comercial.
+                </div>
+
+                <div class="bg-emerald-950/80 border border-emerald-500/40 p-2.5 rounded-xl text-center text-[11px] text-emerald-300">
+                  ✨ <strong>Agendamento Confirmado!</strong> Lead enviado em tempo real para o parceiro da região.
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ (SANFONA) -->
+  <section id="faq" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-3 mb-12">
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900">
+          Perguntas Frequentes
+        </h2>
+        <p class="text-slate-600 text-sm">
+          Tire suas dúvidas sobre o funcionamento do marketplace da Freedom.sec:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer shadow-sm" onclick="toggleFaq(1)">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-base">
+            <span>Quanto custa cada agendamento?</span>
+            <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </div>
+          <div id="faq-content-1" class="hidden mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            O valor do lead é uma fração do serviço agendado — geralmente entre 20% e 28% do valor total. Você sempre visualiza o valor exato do serviço e o custo do lead antes de comprar. Na prática, você lucra entre 72% a 80% do ticket já no primeiro serviço executado.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer shadow-sm" onclick="toggleFaq(2)">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-base">
+            <span>O agendamento é exclusivo ou outro parceiro pode comprar?</span>
+            <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </div>
+          <div id="faq-content-2" class="hidden mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            Sim, é 100% exclusivo! Cada agendamento é vendido para um único credenciado. Assim que você clica em aceitar, ele desaparece imediatamente da vitrine para todos os outros usuários.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer shadow-sm" onclick="toggleFaq(3)">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-base">
+            <span>Preciso pagar mensalidade ou assinar contrato de longo prazo?</span>
+            <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </div>
+          <div id="faq-content-3" class="hidden mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            Não! O cadastro é 100% gratuito. Não cobramos mensalidade obrigatória nem fidelidade. Você adiciona créditos na sua carteira via PIX quando quiser e usa de acordo com a sua disponibilidade de equipe.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer shadow-sm" onclick="toggleFaq(4)">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-base">
+            <span>E se o cliente desmarcar ou o endereço estiver errado?</span>
+            <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </div>
+          <div id="faq-content-4" class="hidden mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            Temos a <strong>Garantia Blindada Freedom.sec</strong>. Se você entrar em contato com o cliente e houver número incorreto, cancelamento anterior ou endereço falso, basta clicar no botão "Solicitar Estorno" no painel. Nossos operadores conferem e estornam o valor do lead integralmente para sua carteira.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RODAPÉ CORPORATIVO -->
+  <footer class="bg-brand-navyDeep text-white border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        
+        <div class="space-y-3 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white p-1">
+              <img src="logo_freedomsec.jpg" alt="Logo Freedom Sec" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/50x50/0B1B3D/FFFFFF?text=FS'">
+            </div>
+            <span class="font-display font-extrabold text-xl text-white">
+              FREEDOM<span class="text-brand-greenLight">SEC</span>
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+            <strong>FREEDOM.SEC CONTROLE DE PRAGAS</strong><br>
+            <em>"Proteção que dá liberdade. Resultados que duram."</em><br>
+            Plataforma tecnológica de captação e intermediação de serviços de dedetização, desratização e descupinização.
+          </p>
+          <p class="text-xs text-slate-400">
+            Proprietário: <strong>Marcelo Baptista das Graças</strong><br>
+            Endereço: <strong>Jd. Comercial - São Paulo / SP</strong>
+          </p>
+        </div>
+
+        <div class="space-y-2 text-xs text-slate-400">
+          <span class="font-bold text-white text-sm block mb-1">Navegação Rápida</span>
+          <a href="#marketplace" class="block hover:text-brand-greenLight">Vitrine de Agendamentos</a>
+          <a href="#como-funciona" class="block hover:text-brand-greenLight">Como Funciona</a>
+          <a href="#simulador" class="block hover:text-brand-greenLight">Simulador de Lucros</a>
+          <a href="#faq" class="block hover:text-brand-greenLight">Perguntas Frequentes</a>
+        </div>
+
+        <div class="space-y-2 text-xs text-slate-400">
+          <span class="font-bold text-white text-sm block mb-1">Contato & Suporte</span>
+          <p class="flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-greenLight"></i>
+            (11) 93934-70XX (WhatsApp Oficial)
+          </p>
+          <p class="flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-brand-greenLight"></i>
+            Jd. Comercial - São Paulo / SP
+          </p>
+          <p class="text-[11px] text-slate-500 mt-2">
+            Hospedado com arquitetura Edge Serverless na Vercel Cloud.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span>&copy; 2026 FREEDOM.SEC Controle de Pragas. Todos os direitos reservados.</span>
+        <span>Desenvolvido sob medida para Marcelo Baptista das Graças.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE COMPRA / DEMO -->
+  <div id="modal-lead" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 text-slate-900 space-y-4 shadow-2xl relative">
+      <button onclick="fecharModalLead()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-brand-green flex items-center justify-center">
+        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+      </div>
+
+      <div>
+        <h3 class="font-display font-extrabold text-xl text-slate-900" id="modal-titulo">Agendamento Selecionado</h3>
+        <p class="text-xs text-slate-500 mt-0.5" id="modal-local">Localização</p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+        <div class="flex justify-between">
+          <span class="text-slate-500">Valor do Serviço a Cobrar:</span>
+          <span class="font-bold text-slate-900" id="modal-servico">R$ 0,00</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">Valor do Agendamento (Lead):</span>
+          <span class="font-bold text-brand-green" id="modal-custo">R$ 0,00</span>
+        </div>
+        <div class="flex justify-between pt-2 border-t border-slate-200">
+          <span class="text-slate-500">Seu Lucro Líquido Estimado:</span>
+          <span class="font-extrabold text-emerald-600 text-sm" id="modal-lucro">R$ 0,00</span>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <button onclick="confirmarCompraDemo()" class="w-full bg-brand-greenLight hover:bg-brand-greenDark text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">
+          Confirmar Aquisição com Saldo da Carteira
+        </button>
+        <button onclick="fecharModalLead()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 rounded-xl text-xs transition-all">
+          Voltar para a Vitrine
+        </button>
+      </div>
+
+      <p class="text-[10px] text-center text-slate-400">
+        Simulação do Marketplace Freedom.sec. Ao confirmar em produção, os dados completos do cliente são liberados na tela.
+      </p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS JS -->
+  <script>
+    // Inicializa Lucide Icons
+    lucide.createIcons();
+
+    // Toggle FAQ
+    function toggleFaq(id) {
+      const content = document.getElementById(`faq-content-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // Simulador de Ganhos
+    function atualizarSimulador(qtd) {
+      document.getElementById('leads-count').innerText = `${qtd} agendamentos`;
+      const ticketMedio = 420;
+      const custoLead = 95;
+      
+      const totalBruto = qtd * ticketMedio;
+      const totalCusto = qtd * custoLead;
+      const totalLucro = totalBruto - totalCusto;
+
+      document.getElementById('faturamento-bruto').innerText = `R$ ${totalBruto.toLocaleString('pt-BR')},00`;
+      document.getElementById('custo-leads').innerText = `R$ ${totalCusto.toLocaleString('pt-BR')},00`;
+      document.getElementById('lucro-liquido').innerText = `R$ ${totalLucro.toLocaleString('pt-BR')},00`;
+    }
+
+    // Modal de Compra de Lead
+    function comprarLeadDemo(titulo, local, servico, custo) {
+      document.getElementById('modal-titulo').innerText = titulo;
+      document.getElementById('modal-local').innerText = local;
+      document.getElementById('modal-servico').innerText = servico;
+      document.getElementById('modal-custo').innerText = custo;
+
+      const numServico = parseFloat(servico.replace('R$ ', '').replace('.', '').replace(',', '.'));
+      const numCusto = parseFloat(custo.replace('R$ ', '').replace('.', '').replace(',', '.'));
+      const lucro = numServico - numCusto;
+      document.getElementById('modal-lucro').innerText = `R$ ${lucro.toFixed(2).replace('.', ',')}`;
+
+      document.getElementById('modal-lead').classList.remove('hidden');
+    }
+
+    function fecharModalLead() {
+      document.getElementById('modal-lead').classList.add('hidden');
+    }
+
+    function confirmarCompraDemo() {
+      alert('Parabéns! Na versão completa da plataforma Freedom.sec, o agendamento é transferido imediatamente para a sua Agenda, abrindo o WhatsApp do cliente com 1 toque e gerando a rota no Google Maps!');
+      fecharModalLead();
+    }
+
+    function recarregarCarteira() {
+      alert('Recarga PIX Freedom.sec: Gera QR Code PIX Copia e Cola instantâneo com compensação em menos de 5 segundos via Webhook na Vercel.');
+    }
+
+    function abrirModalCredenciado() {
+      alert('Acesso Credenciado: Permite ao técnico gerenciar sua agenda, ver relatórios de rotas otimizadas e emitir Certificados Sanitários em PDF.');
+    }
+  </script>
+</body>
+</html>
